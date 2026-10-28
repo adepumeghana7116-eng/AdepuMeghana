@@ -27,17 +27,18 @@ The Express server provides three API endpoints and returns a 404 response for u
 
 ```text
 nodelab1/
-├── http-server.js
-├── server.js
-├── package.json
-├── package-lock.json
-├── .gitignore  
-├── README.md
-└── screenshots/
-    ├── home.png
-    ├── about.png
-    ├── time.png
-    └── unknown.png
+└── lab-01/
+    ├── server.js
+    ├── http-server.js
+    ├── package.json
+    ├── package-lock.json
+    ├── .gitignore
+    ├── README.md
+    └── screenshots/
+        ├── home.png
+        ├── about.png
+        ├── time.png
+        └── unknown.png
 ```
 
 ## Installation
@@ -50,9 +51,10 @@ nodelab1/
    ```
 
 3. Open the project folder in VS Code.
-4. Open the terminal and run:
+4. In the terminal, change to the lab folder and install dependencies:
 
    ```bash
+   cd lab-01
    npm install
    ```
 
