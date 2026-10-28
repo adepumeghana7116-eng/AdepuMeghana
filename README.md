@@ -31,7 +31,7 @@ nodelab1/
 ├── server.js
 ├── package.json
 ├── package-lock.json
-├── .gitignore  
+|   .gitignore
 ├── README.md
 └── screenshots/
     ├── home.png
