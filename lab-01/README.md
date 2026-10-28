@@ -29,20 +29,20 @@ The Express server provides three routes: `/`, `/about`, and `/time`. It also re
 
 ## Project Structure
 
-```nodelab1
-lab-01/
-├── http-server.js
-├── server.js
-├── package.json
-├── package-lock.json
-├── .gitignore
-├── README.md
-└── screenshots/
-    ├── home.png
-    ├── about.png
-    ├── time.png
-    └── unknown.png
-```
+BDF/
+├── lab-01/
+│   ├── http-server.js
+│   ├── server.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── .gitignore
+│   ├── README.md
+│   └── screenshots/
+│       ├── home.png
+│       ├── about.png
+│       ├── time.png
+│       └── unknown.png
+└── node_modules/  
 
 ## Explanation of package.json
 
