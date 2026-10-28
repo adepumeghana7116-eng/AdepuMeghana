@@ -1,6 +1,6 @@
 # BDF Lab 1 – Node.js and Express Server
 
-**Deployment URL:** `ADD_YOUR_PUBLIC_DEPLOYMENT_URL_HERE`
+**Deployment URL:** https://adepumeghana.onrender.com/
 
 ## Student Details
 
@@ -10,11 +10,15 @@
 - **Course:** Backend Development Fundamentals
 - **Lab:** Lab 1 – Node.js and Express Server
 
+## Objective
+
+To set up a Node.js project and build a small web server using the built-in HTTP module, then create a web server using Express.js.
+
 ## Project Description
 
-This project demonstrates how to create a basic web server using Node.js and the built-in HTTP module, and how to create a web server using Express.js.
+This project demonstrates how to create a basic web server using Node.js and its built-in HTTP module and how to create a web server using Express.js.
 
-The Express server provides three API endpoints and returns a 404 response for unknown routes.
+The Express server provides three routes: `/`, `/about`, and `/time`. It also returns a 404 response for unknown routes.
 
 ## Technologies Used
 
@@ -25,71 +29,122 @@ The Express server provides three API endpoints and returns a 404 response for u
 
 ## Project Structure
 
-```text
-nodelab1/
-└── lab-01/
-    ├── server.js
-    ├── http-server.js
-    ├── package.json
-    ├── package-lock.json
-    ├── .gitignore
-    ├── README.md
-    └── screenshots/
-        ├── home.png
-        ├── about.png
-        ├── time.png
-        └── unknown.png
+```nodelab1
+lab-01/
+├── http-server.js
+├── server.js
+├── package.json
+├── package-lock.json
+├── .gitignore
+├── README.md
+└── screenshots/
+    ├── home.png
+    ├── about.png
+    ├── time.png
+    └── unknown.png
 ```
+
+## Explanation of package.json
+
+The `package.json` file stores information about the Node.js project and its dependencies.
+
+- **name:** Specifies the project name.
+- **version:** Specifies the current project version.
+- **description:** Provides a short description of the project, if present.
+- **main:** Specifies the main entry file, if present.
+- **scripts:** Defines commands that can be executed using npm.
+- **author:** Specifies the project author, if present.
+- **license:** Specifies the project's license, if present.
+- **dependencies:** Lists packages required by the application, such as Express.js.
+- **devDependencies:** Lists packages used during development, if present.
+
+Only fields present in the actual `package.json` file apply to this project.
+
+The `package-lock.json` file records the exact dependency versions used for installation. The `node_modules` folder contains the installed packages.
 
 ## Installation
 
-1. Install Node.js and npm.
-2. Clone this repository:
+### Prerequisites
+
+- Node.js installed on the computer.
+- npm, which is installed with Node.js.
+
+### Steps
+
+1. Clone the GitHub repository:
 
    ```bash
    git clone https://github.com/adepumeghana7116-eng/AdepuMeghana.git
    ```
 
-3. Open the project folder in VS Code.
-4. In the terminal, change to the lab folder and install dependencies:
+2. Navigate to the Lab 1 folder:
 
    ```bash
-   cd lab-01
+   cd AdepuMeghana/lab-01
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
    npm install
    ```
 
-This installs the dependencies listed in `package.json`. The `node_modules` folder is generated automatically.
+The `node_modules` folder is generated automatically when the dependencies are installed.
 
 ## Execution
 
-### 1. Run the basic HTTP server
+### 1. Run the Basic HTTP Server
+
+Run the following command:
 
 ```bash
 node http-server.js
 ```
 
-Open `http://localhost:3000` in your browser. The server should display `Welcome to my Express server!`.
+Open the following URL in your browser:
 
-Stop the server with `Ctrl + C` before running the next server.
+http://localhost:3000
 
-### 2. Run the Express server
+The basic HTTP server should return the response configured in `http-server.js`. The Lab 1 task specifies a response of `Hello`.
+
+Stop the server by pressing `Ctrl + C` before starting the Express server.
+
+### 2. Run the Express Server
+
+Run the following command:
 
 ```bash
 node server.js
 ```
 
-The server runs at `http://localhost:3000`.
+Open the following URL in your browser:
+
+http://localhost:3000
+
+The Express server should display the welcome message configured in `server.js`.
 
 ## API Endpoints
 
-| Method | Endpoint | Expected Response |
-|---|---|---|
-| GET | `/` | Welcome message with status code 200 |
-| GET | `/about` | JSON containing student name and section, status code 200 |
-| GET | `/time` | Current date and time, status code 200 |
-| GET | Any unknown path | 404 – Page Not Found |
+The following endpoints are provided by the Express server.
+
+| Method | Endpoint | Description | Expected Status |
+|---|---|---|---|
+| GET | `/` | Returns a welcome message. | 200 OK |
+| GET | `/about` | Returns JSON containing the student's name and section. | 200 OK |
+| GET | `/time` | Returns the current date and time using `new Date()`. | 200 OK |
+| GET | Any unknown path | Returns a Page Not Found message. | 404 Not Found |
+
+## Deployment
+
+The Express application is deployed using Render.
+
+**Public Deployment URL:** https://adepumeghana.onrender.com/
+
+The deployed application can be opened in a web browser. The individual endpoints should also be tested using the public URL.
 
 ## Screenshots
+
+The following screenshots demonstrate the endpoint responses.
 
 ### 1. Home Endpoint – GET /
 
@@ -105,17 +160,33 @@ The server runs at `http://localhost:3000`.
 
 ### 4. Unknown Route – 404 Response
 
-![404 response screenshot](screenshots/unknown.png)
+![Unknown route screenshot](screenshots/unknown.png)
 
 ## Testing
 
-The endpoints were tested by opening the URLs in a browser. The responses were checked to confirm that the routes return the expected content and status codes.
+The endpoints should be tested by opening their URLs in a web browser.
 
-Additional Postman screenshots or a Postman collection can be included as testing evidence.
+The following checks should be performed:
 
-## Notes
+1. Open `/` and check that the welcome message is displayed with status code 200.
+2. Open `/about` and check that the student's name and section are returned as JSON with status code 200.
+3. Open `/time` and check that the current date and time are displayed with status code 200.
+4. Open an unknown route, such as `/unknown`, and check that the server returns status code 404.
+
+The screenshots in the `screenshots/` folder provide evidence of the endpoint responses.
+
+## Notes: Problems Faced and Solutions
+
+1. **GitHub upload:** I learned how to stage, commit, and push the project files to GitHub using Git commands.
+2. **Node modules:** I added `node_modules/` to `.gitignore` to prevent uploading installed dependencies to GitHub. Dependencies can be installed again using `npm install`.
+3. **Deployment:** I configured the Node.js project for deployment on Render and obtained a public deployment URL.
+4. **Testing:** I used a web browser to check the server responses and verify the expected endpoints.
+
+## Important Notes
 
 - Install dependencies using `npm install`.
-- Do not upload the `node_modules` folder to GitHub.
-- Do not commit or share any `.env` file.
+- Do not upload the `node_modules/` folder to GitHub.
+- Do not commit or share any `.env` file containing secrets.
 - The basic HTTP server and Express server both use port 3000, so run them one at a time.
+- Ensure all screenshot files exist in the `screenshots/` folder.
+- Verify the endpoint responses and status codes before submission.
