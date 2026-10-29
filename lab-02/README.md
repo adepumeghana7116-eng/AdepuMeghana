@@ -9,7 +9,7 @@
 
 ## Live Link
 
-**Status:** Not deployed yet.
+**Status:** https://bdf-lab-02.onrender.com
 
 This project has been tested locally using Postman. The current version uses a local SQLite database file (`books.db`). Postman screenshots are included as evidence of the working endpoints. A public deployment URL will be added after deployment.
 
