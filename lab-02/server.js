@@ -5,6 +5,9 @@ const sqlite3 = require("sqlite3");
 
 const app = express();
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Lab 2 - SQLite CRUD API is running!");
+});
 
 const PORT = process.env.PORT || 3000;
 const dbPath = "./books.db";
