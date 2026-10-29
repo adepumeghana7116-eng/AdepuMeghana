@@ -32,27 +32,23 @@ CRUD stands for Create, Read, Update, and Delete.
 
 ## Project Structure
 
-BDF/
-|    lab-02/
-|   ├── screenshots/
-|   ├── .postman/
-|   ├── node_modules
-|   │   ├── 1-database.png
-|   │   ├── 2-get-all.png
-|   │   ├── 3-get-one.png
-|   │   ├── 4-post.png
-|   │   ├── 5-put.png
-|   │   ├── 6-delete.png
-|   │   ├── 7-verify.png
-|   │   └── 8-serverrunning.png
-|   ├── books.db
-|   ├── package-lock.json
-|   ├── package.json
-|   ├── README.md
-|   └── server.js
-├── node_modules/
-├── postman/
-└── .gitignore/
+lab-02/
+├── .postman/
+│   └── resources.yaml
+├── screenshots/
+│   ├── 1-database.png
+│   ├── 2-get-all.png
+│   ├── 3-get-one.png
+│   ├── 4-post.png
+│   ├── 5-put.png
+│   ├── 6-delete.png
+│   ├── 7-verify.png
+│   └── 8-serverrunning.png
+├── books.db
+├── package-lock.json
+├── package.json
+├── README.md
+└── server.js
 
 The `node_modules` folder is excluded from GitHub using `.gitignore`.
 
@@ -206,4 +202,3 @@ Parameterized SQL queries with `?` placeholders are used for queries that accept
 ## Conclusion
 
 This lab helped me understand how to connect an Express server to an SQLite database and implement CRUD operations. I learned to test HTTP endpoints using Postman, use parameterized SQL queries, and verify database changes.
-
