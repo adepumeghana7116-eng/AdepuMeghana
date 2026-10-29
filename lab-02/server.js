@@ -2,18 +2,25 @@
 const express = require("express");
 const sqlite = require("sqlite");
 const sqlite3 = require("sqlite3");
+const path = require("path");
 
 const app = express();
+
 app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+// Use the database file located next to server.js
+const dbPath = path.join(__dirname, "books.db");
+
+let db;
+
+// Homepage
 app.get("/", (req, res) => {
   res.send("Lab 2 - SQLite CRUD API is running!");
 });
 
-const PORT = process.env.PORT || 3000;
-const dbPath = "./books.db";
-
-let db;
-
+// Initialize database and start server
 const initializeDBAndServer = async () => {
   try {
     db = await sqlite.open({
@@ -23,11 +30,24 @@ const initializeDBAndServer = async () => {
 
     console.log("Database connected successfully");
 
+    // Create the book table if it does not exist
+    await db.exec(`
+      CREATE TABLE IF NOT EXISTS book (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT,
+        author TEXT,
+        price INTEGER,
+        pages INTEGER
+      );
+    `);
+
+    console.log("Book table is ready");
+
     app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error("Database connection failed:", error.message);
+    console.error("Database initialization failed:", error.message);
     process.exit(1);
   }
 };
@@ -72,10 +92,14 @@ app.post("/books/", async (req, res) => {
     const { title, author, price, pages } = req.body;
 
     if (
-      typeof title !== "string" || !title.trim() ||
-      typeof author !== "string" || !author.trim() ||
-      !Number.isInteger(price) || price < 0 ||
-      !Number.isInteger(pages) || pages <= 0
+      typeof title !== "string" ||
+      !title.trim() ||
+      typeof author !== "string" ||
+      !author.trim() ||
+      !Number.isInteger(price) ||
+      price < 0 ||
+      !Number.isInteger(pages) ||
+      pages <= 0
     ) {
       return res.status(400).json({ error: "Invalid book data" });
     }
@@ -108,10 +132,14 @@ app.put("/books/:bookId/", async (req, res) => {
     }
 
     if (
-      typeof title !== "string" || !title.trim() ||
-      typeof author !== "string" || !author.trim() ||
-      !Number.isInteger(price) || price < 0 ||
-      !Number.isInteger(pages) || pages <= 0
+      typeof title !== "string" ||
+      !title.trim() ||
+      typeof author !== "string" ||
+      !author.trim() ||
+      !Number.isInteger(price) ||
+      price < 0 ||
+      !Number.isInteger(pages) ||
+      pages <= 0
     ) {
       return res.status(400).json({ error: "Invalid book data" });
     }
@@ -129,7 +157,13 @@ app.put("/books/:bookId/", async (req, res) => {
       `UPDATE book
        SET title = ?, author = ?, price = ?, pages = ?
        WHERE id = ?`,
-      [title.trim(), author.trim(), price, pages, Number(bookId)]
+      [
+        title.trim(),
+        author.trim(),
+        price,
+        pages,
+        Number(bookId),
+      ]
     );
 
     const updatedBook = await db.get(
@@ -167,11 +201,12 @@ app.delete("/books/:bookId/", async (req, res) => {
     );
 
     res.status(200).json({
-      message: "Book deleted successfully"
+      message: "Book deleted successfully",
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
+// Start application
 initializeDBAndServer();
