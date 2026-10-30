@@ -61,31 +61,33 @@ The `node_modules` folder is excluded from GitHub using `.gitignore`.
 
 ## Installation and Setup
 
-1. Open the `lab-02` folder in VS Code.(cd lab-02)
-2. Open the terminal and run:
+1. Clone the GitHub repository:
+
+   ```bash
+   git clone https://github.com/adepumeghana7116-eng/AdepuMeghana.git
+   ```
+
+2. Navigate to the Lab 2 folder:
+
+   ```bash
+   cd AdepuMeghana/lab-02
+   ```
+
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Make sure `books.db` is present inside the `lab-02` folder.
-4. Start the server:
+4. Make sure `books.db` is present inside the `lab-02` folder.
+
+5. Start the server:
 
    ```bash
    npm run dev
    ```
 
-5. The server should start at:
-
-   `http://localhost:3000`
-
-The terminal should display messages confirming that the database is connected and the server is running.
-
-6. Clone the GitHub repository:
-
-   ```bash
-   git clone https://github.com/adepumeghana7116-eng/AdepuMeghana.git
-   ```
+The server should start at `http://localhost:3000`. The terminal should display messages confirming that the database is connected and the server is running.
 
 ### Environment Variables
 
