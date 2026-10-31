@@ -73,7 +73,7 @@ The `package-lock.json` file records the exact dependency versions used for inst
 1. Clone the GitHub repository:
 
    ```bash
-   git clone https://github.com/adepumeghana7116-eng/AdepuMeghana.git
+   git clone https://github.com/adepumeghana7116-eng/AdepuMeghana/tree/main/lab-01
    ```
 
 2. Navigate to the Lab 1 folder:
