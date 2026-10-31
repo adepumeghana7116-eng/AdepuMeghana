@@ -194,12 +194,11 @@ Parameterized SQL queries with `?` placeholders are used for queries that accept
 
 ![VS Code terminal showing the server running](screenshots/8-serverrunning.png)
 
-## Problems Faced and Solutions
+## Challenges Faced and Solutions
 
-1. **SQLite command-line setup:** I extracted the SQLite tools and used the `sqlite3.exe` executable to create and inspect the database.
-2. **Database connection:** I connected the Express application to `books.db` and used an asynchronous initialization function to start the server after the database connection succeeded.
-3. **Testing HTTP methods:** I used Postman to test GET, POST, PUT, and DELETE requests and check their responses.
-4. **Verifying database changes:** I used GET requests and SQLite queries to inspect the records after changes.
+1. **Database connection:** I connected the Express application to `books.db` and used an SQLITE viewer to show the database.
+2. **Testing HTTP methods:** I used Postman to test GET, POST, PUT, and DELETE requests and check their responses.
+3. **Verifying database changes:** I used GET requests and SQLite queries to inspect the records after changes.
 
 ## Conclusion
 
